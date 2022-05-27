@@ -108,6 +108,7 @@ void write(const uint8_t v) {
     digitalWrite(pin_t::WL, 0);
     digitalWrite(pin_t::PREC, 0);
     digitalWrite(pin_t::AMP, 0);
+    TESTS_DELAY;
 
     // charge bl and bln
     digitalWrite(pin_t::BL, v);
@@ -115,11 +116,12 @@ void write(const uint8_t v) {
     TESTS_DELAY;
 
     // write
-    digitalWrite(pin_t::AMP, 1);
+    digitalWrite(pin_t::WL, 1);
     TESTS_DELAY;
 
     // reset
-    digitalWrite(pin_t::AMP, 0);
+    digitalWrite(pin_t::WL, 0);
+    TESTS_DELAY;
 }
 
 void write_0(void) {write(0);}
